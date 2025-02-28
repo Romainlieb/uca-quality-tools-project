@@ -37,7 +37,7 @@ jobs:
                   PORT: 3009
 
             - name: Wait for server to start
-              run: sleep 5
+              run: npx wait-on http://localhost:3009
 
             - name: Kill any process using port 3009
               run: |
