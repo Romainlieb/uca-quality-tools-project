@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Erreur</title>
+</head>
+<body>
+    <h1>Erreur</h1>
+    <p><%= message %></p>
+    <% if (error && error.message) { %>
+        <p>Détails : <%= error.message %></p>
+    <% } %>
+    <a href="/">Retour à l'accueil</a>
+</body>
+</html> 

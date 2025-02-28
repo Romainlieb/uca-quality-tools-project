@@ -4,10 +4,10 @@
     "description": "Projet noté - Qualité algorithmique",
     "main": "src/index.js",
     "scripts": {
-        "start": "node dist/index.js",
+        "start": "ts-node src/index.ts",
         "dev": "nodemon src/index.ts",
         "prepare": "husky",
-        "test": "vitest",
+        "test": "vitest run",
         "test:e2e": "playwright test",
         "test:all": "npm run test && npm run test:e2e",
         "format": "prettier --write .",
@@ -18,6 +18,7 @@
         "perf": "autocannon -c 10 -d 5 -p 10 http://localhost:3000/posts"
     },
     "dependencies": {
+        "@sentry/node": "^8.55.0",
         "ejs": "^3.1.10",
         "express": "^4.21.2",
         "typescript": "^5.4.5"
@@ -26,6 +27,7 @@
         "@commitlint/cli": "^19.7.1",
         "@commitlint/config-conventional": "^19.7.1",
         "@playwright/test": "^1.50.1",
+        "@sentry/types": "^8.55.0",
         "@types/express": "^4.17.21",
         "@types/node": "^20.11.19",
         "@typescript-eslint/eslint-plugin": "^7.1.1",
@@ -35,6 +37,7 @@
         "husky": "^9.1.7",
         "nodemon": "^3.1.9",
         "prettier": "^3.5.1",
+        "ts-node": "^10.9.2",
         "vitest": "^3.0.7"
     }
 }

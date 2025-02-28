@@ -1,7 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+    (this && this.__importDefault) ||
+    function (mod) {
+        return mod && mod.__esModule ? mod : { default: mod };
+    };
 Object.defineProperty(exports, "__esModule", { value: true });
 const data_json_1 = __importDefault(require("../data.json"));
 class PostService {
@@ -24,8 +26,7 @@ class PostService {
     }
     updatePost(id, postData) {
         const index = this.posts.findIndex((post) => post.id === id);
-        if (index === -1)
-            return null;
+        if (index === -1) return null;
         this.posts[index] = { ...this.posts[index], ...postData };
         return this.posts[index];
     }
