@@ -4,21 +4,28 @@
     "description": "Projet noté - Qualité algorithmique",
     "main": "src/index.js",
     "scripts": {
-        "start": "node src/index.js",
-        "dev": "nodemon src/index.js",
+        "start": "node dist/index.js",
+        "dev": "nodemon src/index.ts",
         "prepare": "husky",
         "test": "echo 'Pas de test pour l'instant'",
         "format": "prettier --write .",
         "lint": "eslint .",
-        "lint:fix": "eslint . --fix"
+        "lint:fix": "eslint . --fix",
+        "build": "tsc",
+        "watch": "tsc -w"
     },
     "dependencies": {
         "ejs": "^3.1.10",
-        "express": "^4.21.2"
+        "express": "^4.21.2",
+        "typescript": "^5.4.5"
     },
     "devDependencies": {
         "@commitlint/cli": "^19.7.1",
         "@commitlint/config-conventional": "^19.7.1",
+        "@types/express": "^4.17.21",
+        "@types/node": "^20.11.19",
+        "@typescript-eslint/eslint-plugin": "^7.1.1",
+        "@typescript-eslint/parser": "^7.1.1",
         "eslint": "^8.57.1",
         "eslint-config-prettier": "^9.1.0",
         "husky": "^9.1.7",

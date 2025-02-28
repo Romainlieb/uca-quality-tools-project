@@ -1,5 +1,6 @@
-const express = require("express");
-const PostService = require("./services/PostService");
+import express, { Request, Response } from "express";
+import PostService from "./services/PostService";
+
 const app = express();
 
 app.use(express.json());
@@ -10,26 +11,25 @@ app.use(express.urlencoded({ extended: true }));
 
 const postService = new PostService();
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
     res.render("home");
 });
 
-app.get("/posts", (req, res) => {
+app.get("/posts", (req: Request, res: Response) => {
     const posts = postService.getAllPosts();
     res.render("posts", { posts });
 });
 
-app.post("/posts", (req, res) => {
+app.post("/posts", (req: Request, res: Response) => {
     const post = postService.createPost(req.body);
-    console.log(post);
-    res.redirect(`/posts`);
+    res.redirect("/posts");
 });
 
-app.get("/posts/new", (req, res) => {
+app.get("/posts/new", (req: Request, res: Response) => {
     res.render("new-post");
 });
 
-app.get("/posts/:id/edit", (req, res) => {
+app.get("/posts/:id/edit", (req: Request, res: Response) => {
     const post = postService.getPostById(parseInt(req.params.id));
     if (!post) {
         res.status(404).json({ error: "Post not found" });
@@ -38,7 +38,7 @@ app.get("/posts/:id/edit", (req, res) => {
     res.render("edit-post", { post });
 });
 
-app.get("/posts/:id", (req, res) => {
+app.get("/posts/:id", (req: Request, res: Response) => {
     const post = postService.getPostById(parseInt(req.params.id));
     if (!post) {
         res.status(404).json({ error: "Post not found" });
@@ -47,7 +47,7 @@ app.get("/posts/:id", (req, res) => {
     res.render("post", { post });
 });
 
-app.post("/posts/:id", (req, res) => {
+app.post("/posts/:id", (req: Request, res: Response) => {
     console.log(req.params.id);
     const updatedPost = postService.updatePost(parseInt(req.params.id), req.body);
     console.log(updatedPost); // à modifier dès que ce sera le moment de le résoudre
