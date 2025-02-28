@@ -33,11 +33,12 @@ jobs:
 
             - name: Start server and run E2E tests
               run: |
-                  npm start
+                  npm start &
                   npx wait-on http://localhost:3009
                   npm run test:e2e
                   kill $(lsof -ti :3009)
               env:
                   PORT: 3009
                   CI: true
+                  NODE_ENV: test
                   SENTRY_DSN: ""

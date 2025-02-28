@@ -81,8 +81,18 @@ app.use("/error-test", (req: Request, res: Response) => {
 
 const PORT = process.env.PORT || 3009;
 console.log("Serveur démarré");
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
     console.log("Environment:", process.env.NODE_ENV);
     console.log("Sentry DSN:", process.env.SENTRY_DSN);
 });
+
+// Pour permettre l'arrêt du serveur dans les tests
+if (process.env.NODE_ENV === "test") {
+    process.on("SIGTERM", () => {
+        server.close(() => {
+            console.log("Server closed");
+            process.exit(0);
+        });
+    });
+}
