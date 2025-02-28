@@ -83,4 +83,6 @@ const PORT = process.env.PORT || 3009;
 console.log("Serveur démarré");
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
+    console.log("Environment:", process.env.NODE_ENV);
+    console.log("Sentry DSN:", process.env.SENTRY_DSN);
 });
