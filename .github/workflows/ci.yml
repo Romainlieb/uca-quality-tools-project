@@ -36,7 +36,8 @@ jobs:
                   npm start
                   npx wait-on http://localhost:3009
                   npm run test:e2e
+                  kill $(lsof -ti :3009)
               env:
                   PORT: 3009
                   CI: true
-                  SENTRY_DSN: "" # Désactive Sentry pour les tests
+                  SENTRY_DSN: ""
