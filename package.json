@@ -12,7 +12,8 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "build": "tsc",
-        "watch": "tsc -w"
+        "watch": "tsc -w",
+        "perf": "autocannon -c 10 -d 5 -p 10 http://localhost:3000/posts"
     },
     "dependencies": {
         "ejs": "^3.1.10",
