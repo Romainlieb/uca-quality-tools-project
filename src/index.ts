@@ -5,10 +5,12 @@ import path from "path";
 
 const app = express();
 
-Sentry.init({
-    dsn: "VOTRE_DSN_SENTRY",
-    tracesSampleRate: 1.0
-});
+if (process.env.NODE_ENV !== "test") {
+    Sentry.init({
+        dsn: process.env.SENTRY_DSN || "VOTRE_DSN_SENTRY",
+        tracesSampleRate: 1.0
+    });
+}
 
 // Middlewares
 app.use(express.json());
