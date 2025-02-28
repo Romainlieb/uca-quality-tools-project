@@ -1,5 +1,9 @@
 # uca-quality-tools-project
 
+Baptiste Virmont - Tristan Guillemier - Vincent Stenger - Romain Liebert
+
+Mes camarades n'ont pas pu faire de commit car l'un était en alternance et pendant les vacances les autres n'avaient pas de pc a disposition, cependant ils m'ont quand même aidé via discord
+
 - Debugging et Performance
 
 ## 1. Debugging avec --inspect
